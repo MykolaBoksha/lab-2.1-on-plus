@@ -2,7 +2,7 @@
 #include "ChevroletteC5.h"
 
 int main() {
-    ChevroletteC5 ch1("Chevrolette", 301, "torque tube", 405);
+    ChevroletteC5 ch1("Chevrolette", 300, "torque tube", 405);
 
     std::cout << "Default ChevroletteC5: "
               << ch1.GetBrand() << ", "
