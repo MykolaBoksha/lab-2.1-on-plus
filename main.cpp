@@ -1,16 +1,18 @@
 #include <iostream>
+#include "Car.h"
 #include "ChevroletteC5.h"
 
 int main() {
-    ChevroletteC5 ch1("Chevrolette", 301, "torque tube", 405);
+    Car car("Audi", 120);
+    ChevroletteC5 C5("Chevrolette", 350, "torque tube", 405);
 
-    std::cout << "Default ChevroletteC5: "
-              << ch1.GetBrand() << ", "
-              << ch1.GetSpeed() << ", "
-              << ch1.GetTransaxle() << ", "
-              << ch1.GetEngineHorsePower()
-              << std::endl;
+    Car* ref1 = &car;
+    Car* ref2 = &C5;
+
+    std::cout << ref1->Identify() << std::endl;
+    std::cout << ref2->Identify() << std::endl; // поліморфізм
 
     return 0;
 }
+
 

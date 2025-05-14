@@ -1,30 +1,40 @@
-#ifndef CHEVROLETTEC5_H
-#define CHEVROLETTEC5_H
-
+#pragma once
 #include "Car.h"
+#include <string>
 
 class ChevroletteC5 : public Car {
 private:
     std::string transaxle;
-    int engineHorsePower;
+    int EngineHorsePower;
 
 public:
-    ChevroletteC5() : Car(), transaxle("torque tube"), engineHorsePower(405) {}
+    ChevroletteC5() : Car() {
+        transaxle = "torque tube";
+        EngineHorsePower = 405;
+    }
 
-    ChevroletteC5(std::string brand, int speed, std::string transaxle, int engineHorsePower)
-        : Car(brand, speed), transaxle(transaxle), engineHorsePower(engineHorsePower) {}
+    ChevroletteC5(const std::string& brand, int speed, const std::string& transaxle, int EngineHorsePower)
+        : Car(brand, speed) {
+        this->transaxle = transaxle;
+        this->EngineHorsePower = EngineHorsePower;
+    }
 
-    ChevroletteC5(const ChevroletteC5& other)
-        : Car(other), transaxle(other.transaxle), engineHorsePower(other.engineHorsePower) {}
+    ChevroletteC5(const ChevroletteC5& other) : Car(other) {
+        transaxle = other.transaxle;
+        EngineHorsePower = other.EngineHorsePower;
+    }
 
     std::string GetTransaxle() const {
         return transaxle;
     }
 
     int GetEngineHorsePower() const {
-        return engineHorsePower;
+        return EngineHorsePower;
+    }
+
+    std::string Identify() const override {
+        return "its a car: " + GetBrand() + " with " + transaxle;
     }
 };
 
-#endif
 
